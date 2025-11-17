@@ -1,0 +1,74 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// You can add your models here later
+model Club {
+  id         String  @id @default(uuid()) @db.Uuid
+  name       String
+  country    String
+  city       String
+  address    String
+  website    String?
+  isVerified Boolean @default(false) @map("is_verified")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  logoUrl         String? @map("logo_url")
+  originalLogoUrl String? @map("original_logo_url")
+
+  postalCode  String? @map("postal_code")
+  phone       String?
+  email       String?
+  description String?
+
+  isActive Boolean @default(true) @map("is_active")
+
+  contactFirstName String? @map("contact_first_name")
+  contactLastName  String? @map("contact_last_name")
+
+  location String
+
+  geocodeLastAttempt DateTime? @map("geocode_last_attempt") @db.Timestamptz(6)
+  geocodeAttempts    Int?      @default(0) @map("geocode_attempts")
+  geocodeError       String?   @map("geocode_error")
+  geocodeStatus      String?   @map("geocode_status")
+
+  locations ClubLocation[]
+
+  @@map("clubs")
+}
+
+model ClubLocation {
+  id String @id @default(uuid()) @db.Uuid
+
+  clubId String @map("club_id") @db.Uuid
+  club   Club   @relation(fields: [clubId], references: [id])
+
+  locationName String  @map("location_name")
+  address      String?
+  city         String?
+
+  postalCode  String? @map("postal_code")
+  phone       String?
+  email       String?
+  description String?
+
+  isPrimary    Boolean @default(false) @map("is_primary")
+  displayOrder Int     @default(0) @map("display_order")
+  isActive     Boolean @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  countryId String? @map("country_id")
+
+  @@map("club_locations")
+}

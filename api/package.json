@@ -1,0 +1,22 @@
+{
+    "name": "antal-tenis",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon --legacy-watch src/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@prisma/client": "^6.0.0",
+        "axios": "^1.13.2",
+        "cheerio": "^1.1.2",
+        "express": "^5.1.0",
+        "prisma": "^6.19.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.7"
+    }
+}

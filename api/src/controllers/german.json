@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Badischer Tischtennis-Verband",
+        "federation": "BaTTV",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=BaTTV"
+    },
+    {
+        "name": "Tischtennis Baden-Württemberg",
+        "federation": "TTBW",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=TTBW"
+    },
+    {
+        "name": "Bayerischer Tischtennis-Verband",
+        "federation": "BTTV",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=BTTV"
+    },
+    {
+        "name": "Tischtennis-Verband Brandenburg",
+        "federation": "TTVB",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=TTVB"
+    },
+    {
+        "name": "Fachverband Tischtennis Bremen",
+        "federation": "FTTB",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=FTTB"
+    },
+    {
+        "name": "Hamburger Tischtennis-Verband",
+        "federation": "HaTTV",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=HaTTV"
+    },
+    {
+        "name": "Hessischer Tischtennis-Verband",
+        "federation": "HeTTV",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=HeTTV"
+    },
+    {
+        "name": "Tischtennis-Verband Mecklenburg-Vorpommern",
+        "federation": "TTVMV",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=TTVMV"
+    },
+    {
+        "name": "Tischtennis-Verband Niedersachsen",
+        "federation": "TTVN",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=TTVN"
+    },
+    {
+        "name": "Pfälzischer Tischtennis-Verband",
+        "federation": "PTTV",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=PTTV"
+    },
+    {
+        "name": "Saarländischer Tischtennisbund",
+        "federation": "STTB",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=STTB"
+    },
+    {
+        "name": "Tischtennis-Verband Sachsen-Anhalt",
+        "federation": "TTVSA",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=TTVSA"
+    },
+    {
+        "name": "Thüringer Tischtennisverband",
+        "federation": "TTTV",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=TTTV"
+    },
+    {
+        "name": "Westdeutscher Tischtennis-Verband",
+        "federation": "WTTV",
+        "url": "https://httv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubSearch?federation=WTTV"
+    }
+]
