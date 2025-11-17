@@ -1,1 +1,38 @@
+# Environment configs
 .env
+.env.*
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# macOS artifacts
+.DS_Store
+
+# Package manager lockfiles (uncomment the one you want to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Prisma artifacts
+prisma/migrations/
+api/prisma/migrations/
+node_modules/.prisma/
+api/node_modules/.prisma/
+prisma/generated/
+api/prisma/generated/
+prisma/dev.db
+api/prisma/dev.db
+prisma/test.db
+api/prisma/test.db
+
+# Build outputs
+dist/
+build/
+
+# Coverage
+coverage/
