@@ -11,6 +11,7 @@ datasource db {
 // You can add your models here later
 model Club {
   id         String  @id @default(uuid()) @db.Uuid
+  url        String  @unique
   name       String
   country    String
   city       String

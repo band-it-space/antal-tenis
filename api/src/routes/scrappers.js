@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { germanyTeamsScrapper } = require("../controllers/germany");
+const { germanyController } = require("../controllers/germany");
 
-router.get("/germany", germanyTeamsScrapper);
+router.get("/germany", germanyController);
 
 module.exports = router;
