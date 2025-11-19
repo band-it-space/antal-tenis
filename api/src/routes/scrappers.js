@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { germanyController } = require("../controllers/germany");
+const { scrappersController } = require("../controllers/scrappers");
 
-router.get("/germany", germanyController);
+router.post("/", scrappersController);
 
 module.exports = router;

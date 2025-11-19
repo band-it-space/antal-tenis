@@ -1,11 +1,14 @@
 const cheerio = require("cheerio");
 
 const prisma = require("../prisma");
-const clubsData = require("./german.json");
 const { sleep, getReq, ensureClubUrlIsUnique } = require("../helpers");
 
-const BASE_URL = "https://httv.click-tt.de";
-
+const BASE_URL = "https://www.click-tt.ch";
+const clubsData = [
+    {
+        url: "https://www.click-tt.ch/cgi-bin/WebObjects/nuLigaTTCH.woa/wa/clubSearch?federation=STT",
+    },
+];
 const extractClubInfo = (html) => {
     const $ = cheerio.load(html);
 
@@ -23,7 +26,7 @@ const extractClubInfo = (html) => {
     const infoText = root.find("p").first().text().replace(/\s+/g, " ").trim();
 
     //! contact info
-    const contactBlock = root.find("h2:contains('Kontaktadresse')").next("p");
+    const contactBlock = root.find("h2:contains('Contact Address')").next("p");
 
     const contactRaw = contactBlock.html() || "";
     const contactText = contactBlock.text().trim();
@@ -81,8 +84,9 @@ const extractClubInfo = (html) => {
 
     rightCol.find("h2").each((_, h2) => {
         const title = $(h2).text().trim();
-        if (!title.toLowerCase().includes("spiellokal")) return;
 
+        if (!title.toLowerCase().includes("matchlocation")) return;
+        console.log("Title", title);
         const p = $(h2).next("p");
         const blockText = p.text().trim();
 
@@ -128,7 +132,7 @@ const extractClubInfo = (html) => {
     //! club
     const club = {
         name: name,
-        country: "Germany",
+        country: "Switzerland",
         city: locations[0]?.city || " ",
         address: locations[0]?.address || " ",
         postalCode: locations[0]?.postalCode || " ",
@@ -147,7 +151,7 @@ const extractClubInfo = (html) => {
     };
 };
 
-const germanyTeamsScrapper = async () => {
+const switzerlandTeamsScrapper = async () => {
     try {
         const regionLinks = [];
         for (const clubInfo of clubsData) {
@@ -179,7 +183,6 @@ const germanyTeamsScrapper = async () => {
 
             $("td a").each((_, element) => {
                 const href = $(element).attr("href");
-                // const label = $(element).text().trim();
 
                 if (href) {
                     teamLinks.push({
@@ -216,6 +219,11 @@ const germanyTeamsScrapper = async () => {
                 const { club, locations } = extractClubInfo(teamPage);
 
                 if (!club || !locations || locations.length === 0) {
+                    console.log("Missed required data");
+
+                    counter++;
+                    console.log("Steel in queue", teamLinks.length - counter);
+                    console.log("------------------------------------------");
                     continue;
                 }
 
@@ -257,7 +265,7 @@ const germanyTeamsScrapper = async () => {
 
                 counter++;
                 console.log("Steel in queue", teamLinks.length - counter);
-
+                console.log("------------------------------------------");
                 await sleep(200);
             } catch (error) {
                 console.log(
@@ -271,4 +279,4 @@ const germanyTeamsScrapper = async () => {
     }
 };
 
-module.exports = germanyTeamsScrapper;
+module.exports = switzerlandTeamsScrapper;
