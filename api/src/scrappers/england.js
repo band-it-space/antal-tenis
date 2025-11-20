@@ -40,8 +40,8 @@ const englandTeamsScrapper = async () => {
                     ? club?.primary_tel
                     : club?.primary_secondary_tel
                     ? club?.primary_secondary_tel
-                    : " ";
-                const email = club?.email ? club?.email : " ";
+                    : null;
+                const email = club?.email ? club?.email : null;
 
                 // Saving club to Db
                 const createdClub = await prisma.club.create({
@@ -53,7 +53,7 @@ const englandTeamsScrapper = async () => {
                         postalCode: club?.addr_postcode,
                         phone,
                         email,
-                        website: club?.url ? club?.url : " ",
+                        website: club?.url ? club?.url : null,
                         description: null,
                         contactFirstName: club?.primary_fname,
                         contactLastName: club?.primary_lname,

@@ -62,21 +62,6 @@ const extractClubInfo = (html) => {
     const mobileMatch = contactText.match(/Mobil\s+([\d/+()\- ]+)/i);
     const mobile = mobileMatch ? mobileMatch[1].trim() : null;
 
-    //TODO: contact address
-    // const addressLine = contactBlock
-    //     .html()
-    //     ?.split("<br>")[1]
-    //     ?.replace(/<[^>]+>/g, "")
-    //     .trim();
-
-    // const addressParts = addressLine ? addressLine.split(",") : [];
-    // const cityPart = addressParts[1] ? addressParts[1].trim() : null;
-
-    // const postalMatch = cityPart ? cityPart.match(/(\d{4,5})/) : null;
-    // const postalCode = postalMatch ? postalMatch[1] : null;
-
-    // const city = cityPart ? cityPart.replace(postalCode, "").trim() : null;
-
     //! location
     const rightCol = $("tbody > tr > td").eq(1);
 

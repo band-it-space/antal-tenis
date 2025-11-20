@@ -2,6 +2,8 @@ const {
     germanyScrapper,
     englandScrapper,
     switzerlandScrapper,
+    scotlandScrapper,
+    walesScrapper,
 } = require("../scrappers");
 
 const scrappersController = async (req, res, next) => {
@@ -22,11 +24,16 @@ const scrappersController = async (req, res, next) => {
             case "switzerland":
                 switzerlandScrapper();
                 break;
+            case "scotland":
+                scotlandScrapper();
+                break;
+            case "wales":
+                walesScrapper();
+                break;
             default:
                 return res.status(200).json({
                     message: `There isn't any scraper for ${country}`,
                 });
-                break;
         }
 
         return res.status(200).json({
