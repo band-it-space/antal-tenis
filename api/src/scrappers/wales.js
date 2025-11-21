@@ -17,9 +17,11 @@ const walesScrapper = async () => {
                 const res = await axios.post(
                     `${WALES_BASE_URL}?p=${page}&i=${perPage}&s=&l=&d=`
                 );
+
                 if (!res.data || res.data?.data.length === 0) return;
                 const walesData = res.data;
                 const totalResult = walesData?.total;
+
                 console.log("Total in queue:", totalResult);
 
                 for (const club of walesData.data) {
@@ -28,6 +30,7 @@ const walesScrapper = async () => {
                         prisma,
                         clubUrl
                     );
+
                     //! Check if already exist
                     if (alreadyExists) {
                         console.log("Skip existing club", club?.name);
@@ -108,11 +111,11 @@ const walesScrapper = async () => {
                     );
 
                     counter++;
-                    page++;
                     console.log("Steel in Wales queue", totalResult - counter);
                     console.log("------------------------------------------");
                     if (totalResult === counter) return;
                 }
+                page++;
             } catch (error) {
                 console.log("Wales scrapping error:", error);
             }
