@@ -2,7 +2,12 @@ const cheerio = require("cheerio");
 
 const prisma = require("../prisma");
 const clubsData = require("./german.json");
-const { sleep, getReq, ensureClubUrlIsUnique } = require("../helpers");
+const {
+    normalizeUrl,
+    sleep,
+    getReq,
+    ensureClubUrlIsUnique,
+} = require("../helpers");
 
 const BASE_URL = "https://httv.click-tt.de";
 
@@ -50,7 +55,9 @@ const extractClubInfo = (html) => {
     });
     //! website
     const websiteEl = contactBlock.find("a[href^='http']").first();
-    const website = websiteEl.length ? websiteEl.attr("href").trim() : null;
+    const website = websiteEl.length
+        ? normalizeUrl(websiteEl.attr("href").trim())
+        : null;
 
     //! phone
     const phoneMatch = contactText.match(/Tel.*?\s([\d/ ]+)/i);

@@ -38,8 +38,19 @@ const ensureClubUrlIsUnique = async (prismaClient, url) => {
     });
 };
 
+const normalizeUrl = (url) => {
+    if (!url || typeof url !== "string") return null;
+
+    let clean = url.trim();
+    clean = clean.replace(/^https?:\/\//i, "");
+    clean = clean.replace(/\/+$/, "/");
+
+    return clean;
+};
+
 module.exports = {
     sleep,
     getReq,
     ensureClubUrlIsUnique,
+    normalizeUrl,
 };

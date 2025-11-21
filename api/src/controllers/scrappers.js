@@ -4,6 +4,7 @@ const {
     switzerlandScrapper,
     scotlandScrapper,
     walesScrapper,
+    irelandScrapper,
 } = require("../scrappers");
 
 const scrappersController = async (req, res, next) => {
@@ -29,6 +30,9 @@ const scrappersController = async (req, res, next) => {
                 break;
             case "wales":
                 walesScrapper();
+                break;
+            case "ireland":
+                irelandScrapper();
                 break;
             default:
                 return res.status(200).json({

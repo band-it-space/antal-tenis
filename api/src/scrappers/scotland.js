@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 
 const prisma = require("../prisma");
-const { sleep, getReq, ensureClubUrlIsUnique } = require("../helpers");
+const { normalizeUrl, getReq, ensureClubUrlIsUnique } = require("../helpers");
 
 const SCOTLAND_BASE_URL = "https://tabletennisscotland.co.uk/places-to-play-2/";
 const postcodeFormatRegex = /([A-Z]{1,2}\d{1,2}\s?\d[A-Z]{2})/i;
@@ -68,7 +68,9 @@ const scotlandScrapper = async () => {
                 const websiteMatch = description.match(
                     /(https?:\/\/[^\s]+|www\.[^\s]+)/i
                 );
-                const website = websiteMatch ? websiteMatch[0] : null;
+                const website = websiteMatch
+                    ? normalizeUrl(websiteMatch[0])
+                    : null;
 
                 //! contact name
                 let contactFirstName = " ";

@@ -1,5 +1,5 @@
 const prisma = require("../prisma");
-const { sleep, getReq, ensureClubUrlIsUnique } = require("../helpers");
+const { normalizeUrl, getReq, ensureClubUrlIsUnique } = require("../helpers");
 
 const ENG_BASE_URL =
     "https://www.tabletennisengland.co.uk/content/json/sport80.json";
@@ -53,7 +53,7 @@ const englandTeamsScrapper = async () => {
                         postalCode: club?.addr_postcode,
                         phone,
                         email,
-                        website: club?.url ? club?.url : null,
+                        website: normalizeUrl(club?.url),
                         description: null,
                         contactFirstName: club?.primary_fname,
                         contactLastName: club?.primary_lname,
