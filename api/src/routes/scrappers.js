@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { scrappersController } = require("../controllers/scrappers");
 
-router.post("/", scrappersController);
+router.get("/", scrappersController);
 
 module.exports = router;

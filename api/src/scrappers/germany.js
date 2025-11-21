@@ -198,7 +198,10 @@ const germanyTeamsScrapper = async () => {
                 if (alreadyExists) {
                     console.log("Skip existing club", clubUrl);
                     counter++;
-                    console.log("Steel in queue", teamLinks.length - counter);
+                    console.log(
+                        "Steel in Germany queue",
+                        teamLinks.length - counter
+                    );
                     console.log("------------------------------------------");
                     continue;
                 }
@@ -248,7 +251,10 @@ const germanyTeamsScrapper = async () => {
                 console.log("Created club:", createdClub.id, createdClub.name);
 
                 counter++;
-                console.log("Steel in queue", teamLinks.length - counter);
+                console.log(
+                    "Steel in Germany queue",
+                    teamLinks.length - counter
+                );
 
                 await sleep(200);
             } catch (error) {

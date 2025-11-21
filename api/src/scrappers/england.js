@@ -23,7 +23,10 @@ const englandTeamsScrapper = async () => {
                 if (alreadyExists) {
                     console.log("Skip existing club", club?.name);
                     counter++;
-                    console.log("Steel in queue", engTeams.length - counter);
+                    console.log(
+                        "Steel in England queue",
+                        engTeams.length - counter
+                    );
                     console.log("------------------------------------------");
                     continue;
                 }
@@ -81,7 +84,10 @@ const englandTeamsScrapper = async () => {
                 console.log("Created club:", createdClub.id, createdClub.name);
 
                 counter++;
-                console.log("Steel in queue", engTeams.length - counter);
+                console.log(
+                    "Steel in England queue",
+                    engTeams.length - counter
+                );
                 console.log("------------------------------------------");
             } catch (error) {
                 console.log("Error while saving club:", club.cid);

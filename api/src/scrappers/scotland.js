@@ -35,7 +35,10 @@ const scotlandScrapper = async () => {
                 if (alreadyExists) {
                     console.log("Skip existing club", club?.title);
                     counter++;
-                    console.log("Steel in queue", clubs.length - counter);
+                    console.log(
+                        "Steel in Scotland queue",
+                        clubs.length - counter
+                    );
                     console.log("------------------------------------------");
                     continue;
                 }
@@ -122,7 +125,7 @@ const scotlandScrapper = async () => {
                 console.log("Created club:", createdClub.id, createdClub.name);
 
                 counter++;
-                console.log("Steel in queue", clubs.length - counter);
+                console.log("Steel in Scotland queue", clubs.length - counter);
                 console.log("------------------------------------------");
             } catch (error) {
                 console.log(error);

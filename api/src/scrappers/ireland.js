@@ -32,7 +32,6 @@ const irelandScrapper = async () => {
         const jsonStr = decoded.replace(/^nopeeking/, "");
         const obj = JSON.parse(jsonStr);
         const clubs = obj[0].Result;
-        console.log(clubs);
 
         let counter = 0;
         const totalResult = clubs.length;
@@ -45,7 +44,7 @@ const irelandScrapper = async () => {
             if (alreadyExists) {
                 console.log("Skip existing club", club?.ClubName);
                 counter++;
-                console.log("Steel in queue", totalResult - counter);
+                console.log("Steel in Ireland queue", totalResult - counter);
                 console.log("------------------------------------------");
                 continue;
             }
@@ -106,7 +105,7 @@ const irelandScrapper = async () => {
             console.log("Created club:", createdClub.id, createdClub.name);
 
             counter++;
-            console.log("Steel in queue", clubs.length - counter);
+            console.log("Steel in Ireland queue", clubs.length - counter);
             console.log("------------------------------------------");
         }
     } catch (error) {

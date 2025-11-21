@@ -1,8 +1,9 @@
 module.exports = {
-    germanyScrapper: require("./germany"),
-    englandScrapper: require("./england"),
-    switzerlandScrapper: require("./switzerland"),
-    scotlandScrapper: require("./scotland"),
-    walesScrapper: require("./wales"),
-    irelandScrapper: require("./ireland"),
+    germany: require("./germany"),
+    england: require("./england"),
+    switzerland: require("./switzerland"),
+    scotland: require("./scotland"),
+    wales: require("./wales"),
+    ireland: require("./ireland"),
+    // usa: require("./usa"),
 };

@@ -10,6 +10,7 @@ const HEADERS = {
 
 const getReq = async (url, options = {}) => {
     const { retries = 3, delayMs = 1000 } = options;
+    console.log(url);
 
     let attempt = 0;
     while (attempt <= retries) {

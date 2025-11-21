@@ -201,7 +201,10 @@ const switzerlandTeamsScrapper = async () => {
                 if (alreadyExists) {
                     console.log("Skip existing club", clubUrl);
                     counter++;
-                    console.log("Steel in queue", teamLinks.length - counter);
+                    console.log(
+                        "Steel in Switzerland queue",
+                        teamLinks.length - counter
+                    );
                     console.log("------------------------------------------");
                     continue;
                 }
@@ -214,7 +217,10 @@ const switzerlandTeamsScrapper = async () => {
                     console.log("Missed required data");
 
                     counter++;
-                    console.log("Steel in queue", teamLinks.length - counter);
+                    console.log(
+                        "Steel in Switzerland queue",
+                        teamLinks.length - counter
+                    );
                     console.log("------------------------------------------");
                     continue;
                 }
@@ -256,7 +262,10 @@ const switzerlandTeamsScrapper = async () => {
                 console.log("Created club:", createdClub.id, createdClub.name);
 
                 counter++;
-                console.log("Steel in queue", teamLinks.length - counter);
+                console.log(
+                    "Steel in Switzerland queue",
+                    teamLinks.length - counter
+                );
                 console.log("------------------------------------------");
                 await sleep(200);
             } catch (error) {

@@ -1,44 +1,28 @@
-const {
-    germanyScrapper,
-    englandScrapper,
-    switzerlandScrapper,
-    scotlandScrapper,
-    walesScrapper,
-    irelandScrapper,
-} = require("../scrappers");
+const scrappers = require("../scrappers");
 
 const scrappersController = async (req, res, next) => {
     try {
-        const { country } = req.body;
+        const { country } = req.query;
+
+        //! Run scrappers for all countries
         if (!country) {
+            Object.keys(scrappers).forEach((key) => {
+                scrappers[key]();
+            });
             return res.status(200).json({
-                message: `Missed required field!`,
+                message: `Start scrapping for all countries`,
             });
         }
-        switch (country) {
-            case "germany":
-                germanyScrapper();
-                break;
-            case "england":
-                englandScrapper();
-                break;
-            case "switzerland":
-                switzerlandScrapper();
-                break;
-            case "scotland":
-                scotlandScrapper();
-                break;
-            case "wales":
-                walesScrapper();
-                break;
-            case "ireland":
-                irelandScrapper();
-                break;
-            default:
-                return res.status(200).json({
-                    message: `There isn't any scraper for ${country}`,
-                });
+
+        if (!scrappers[country]) {
+            return res.status(400).json({
+                message: `There isn't any scraper for ${country}`,
+            });
         }
+
+        //! Run scrapper for one country
+
+        scrappers[country]();
 
         return res.status(200).json({
             message: `Scraper for ${country} started`,

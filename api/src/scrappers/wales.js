@@ -1,7 +1,7 @@
 const prisma = require("../prisma");
 const axios = require("axios");
 
-const { sleep, ensureClubUrlIsUnique } = require("../helpers");
+const { ensureClubUrlIsUnique } = require("../helpers");
 
 const WALES_BASE_URL =
     "https://tabletenniswales.sport80.com/api/public/widget/data/new/1";
@@ -32,7 +32,10 @@ const walesScrapper = async () => {
                     if (alreadyExists) {
                         console.log("Skip existing club", club?.name);
                         counter++;
-                        console.log("Steel in queue", totalResult - counter);
+                        console.log(
+                            "Steel in Wales queue",
+                            totalResult - counter
+                        );
                         console.log(
                             "------------------------------------------"
                         );
@@ -106,7 +109,7 @@ const walesScrapper = async () => {
 
                     counter++;
                     page++;
-                    console.log("Steel in queue", totalResult - counter);
+                    console.log("Steel in Wales queue", totalResult - counter);
                     console.log("------------------------------------------");
                     if (totalResult === counter) return;
                 }
