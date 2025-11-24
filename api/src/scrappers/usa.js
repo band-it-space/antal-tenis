@@ -68,15 +68,7 @@ const usaScrapper = async () => {
                         }
                     }
 
-                    const alreadyExists = await ensureClubUrlIsUnique(
-                        prisma,
-                        url
-                    );
-
-                    // Check if already exist
-                    if (!alreadyExists) {
-                        clubs.push({ name, email, phone, url });
-                    }
+                    clubs.push({ name, email, phone, url });
                 });
                 offset += perPage;
                 await sleep(200);
@@ -92,6 +84,15 @@ const usaScrapper = async () => {
             }
             console.log(`Parsing club with url: ${club.url}`);
 
+            const alreadyExists = await ensureClubUrlIsUnique(prisma, club.url);
+
+            // Check if already exist
+            if (alreadyExists) {
+                console.log("Skip existing club", club?.name);
+                console.log("Steel in US queue", clubs.length - (index + 1));
+                console.log("------------------------------------------");
+                continue;
+            }
             await page.goto(club.url, {
                 waitUntil: "networkidle2",
             });
@@ -184,7 +185,7 @@ const usaScrapper = async () => {
                 });
 
                 console.log("Created club:", createdClub.id, createdClub.name);
-                console.log("Steel in USA queue", clubs.length - index);
+                console.log("Steel in USA queue", clubs.length - (index + 1));
                 console.log("------------------------------------------");
                 await sleep(200);
             } catch (error) {

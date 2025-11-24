@@ -210,7 +210,7 @@ const australiaTeamsScrapper = async () => {
                 console.log("Created club:", createdClub.id, createdClub.name);
 
                 counter++;
-                console.log("Steel in Scotland queue", clubs.length - counter);
+                console.log("Steel in Australia queue", clubs.length - counter);
                 console.log("------------------------------------------");
                 await sleep(200);
             } catch (error) {
