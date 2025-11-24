@@ -5,5 +5,6 @@ module.exports = {
     scotland: require("./scotland"),
     wales: require("./wales"),
     ireland: require("./ireland"),
-    // usa: require("./usa"),
+    usa: require("./usa"),
+    australia: require("./asutralia"),
 };
